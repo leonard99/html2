@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>起始页</title>
+    <style>
+      body {
+        background-image: url(./mage/3.jpg);
+      }
+      .flex {
+        display: flex;
+      }
+      #clock {
+        margin: 100px auto;
+        border: 5px double green;
+        width: 400px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        font: bold;
+        color: red;
+      }
+      input {
+        height: 40px;
+        width: 400px;
+        float: left;
+        padding: 0 8px;
+        outline: none;
+
+        background-color: transparent;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .nk {
+        position: relative;
+        max-width: 600px;
+        margin: 3vh auto 20px;
+        justify-content: center;
+      }
+      .ss {
+        justify-content: center;
+        box-shadow: 0 0 10px 3px #00000029;
+        position: relative;
+        z-index: 1;
+        backdrop-filter: blur(14px);
+        overflow: hidden;
+        display: flex;
+        border-radius: 25px;
+        height: 50px; ;
+        background-color: rgba(249, 249, 250, 0.034);
+        align-items: center;
+        transition: 0.2s;
+        color: red;
+      }
+      .baidu {
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        width: 50px;
+        float:right
+        
+      }
+      .baidu img {
+        height: 30px;
+        width: 30px;
+        align-items: center;
+      }
+      .pic {
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        width: 50px;
+        float: right;
+        padding-top: 5px;
+      }
+      .pic img {
+        align-items: center;
+        height: 30px;
+        width: 30px;
+      }
+    </style>
+    <script>
+      function showTime(clock) {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth();
+        var day = now.getDate();
+        var hour = now.getHours();
+        var minu = now.getMinutes();
+        var second = now.getSeconds();
+        month = month + 1;
+        var arr_work = new Array(
+          "星期日",
+          "星期一",
+          "星期二",
+          "星期三",
+          "星期四",
+          "星期五",
+          "星期六"
+        );
+        var week = arr_work[now.getDay()];
+        var time =
+          year +
+          "年" +
+          month +
+          "月" +
+          day +
+          "日 " +
+          week +
+          " " +
+          hour +
+          ":" +
+          minu +
+          ":" +
+          second;
+        clock.innerHTML = "当前时间: " + time;
+      }
+      window.onload = function () {
+        var clock = document.getElementById("clock");
+        window.setInterval("showTime(clock)", 1000);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="clock"></div>
+    <div>
+      <div class="flex nk">
+        <div class="flex ss">
+          <div class="baidu">
+            <a href="#"><img src="./mage/baidu.svg" alt="" /></a>
+          </div>
+          <input type="text" size="30px" placeholder="搜索" name="word" />
+          <div class="pic">
+            <a href="#"><img src="./mage/搜索.svg" alt="" /></a>
+          </div>
+        </div>
+      </div>
+      <div></div>
+    </div>
+  </body>
+</html>
